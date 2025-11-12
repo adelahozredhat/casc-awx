@@ -7,6 +7,7 @@
     aap_password: "{{ vault_aap_password | default(lookup('env', 'CONTROLLER_PASSWORD')) }}"
     aap_hostname: "{{ vault_aap_hostname | default(lookup('env', 'CONTROLLER_HOST')) }}"
     aap_validate_certs: "{{ vault_aap_validate_certs | default(lookup('env', 'CONTROLLER_VERIFY_SSL')) }}"
+    controller_validate_certs: "{{lookup('env', 'CONTROLLER_VERIFY_SSL')}}"
     flatten_output: true
     local_path: "/tmp/{{repo_base}}"
     grupo: "lab-user"
