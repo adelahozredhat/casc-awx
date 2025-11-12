@@ -8,10 +8,11 @@
     aap_hostname: "{{ vault_aap_hostname | default(lookup('env', 'CONTROLLER_HOST')) }}"
     aap_validate_certs: "{{ vault_aap_validate_certs | default(lookup('env', 'CONTROLLER_VERIFY_SSL')) }}"
     controller_validate_certs: "{{lookup('env', 'CONTROLLER_VERIFY_SSL')}}"
+    controller_hostname: "{{lookup('env', 'CONTROLLER_HOST')}}"
     flatten_output: true
     local_path: "/tmp/{{repo_base}}"
     grupo: "lab-user"
-    repo_base: "casc-aap"
+    repo_base: "casc-awx"
     output_path: "{{local_path}}/filetree"
     repo_base_branch: master
 
@@ -40,7 +41,7 @@
 
         - name: "Set the oauth token to be used since now"
           ansible.builtin.set_fact:
-            aap_oauthtoken: "{{ authtoken_res.json.token }}"
+            controller_oauthtoken: "{{ authtoken_res.json.token }}"
             aap_oauthtoken_url: "{{ authtoken_res.json.url }}"
       no_log: "{{ controller_configuration_filetree_create_secure_logging | default('false') }}"
       when: aap_oauthtoken is not defined
