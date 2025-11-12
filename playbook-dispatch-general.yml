@@ -47,7 +47,7 @@
       tags:
         - always
   roles:
-    - {role: infra.aap_configuration.dispatch}
+    - {role: infra.controller_configuration.dispatch}
 
   post_tasks:
     - name: "Delete the Authentication Token used"

@@ -51,7 +51,7 @@
         path: "{{ output_path }}"
         state: absent
   roles:
-    - infra.aap_configuration_extended.filetree_create
+    - infra.controller_configuration.filetree_create
 
   post_tasks:
 
