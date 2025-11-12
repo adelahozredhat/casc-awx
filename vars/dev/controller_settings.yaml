@@ -5,7 +5,7 @@ controller_settings:
       ACTIVITY_STREAM_ENABLED_FOR_INVENTORY_SYNC: "false"
       ORG_ADMINS_CAN_SEE_ALL_USERS: "true"
       MANAGE_ORGANIZATION_AUTH: "true"
-      TOWER_URL_BASE: https://example-ansible-automation-platform.apps-crc.testing
+      TOWER_URL_BASE: https://awx-demo-awx.apps-crc.testing
       REMOTE_HOST_HEADERS:
         - REMOTE_ADDR
         - REMOTE_HOST
