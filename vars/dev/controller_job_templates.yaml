@@ -138,7 +138,7 @@ controller_templates:
   - name: "playbook_casc_filetree"
     description: ""
     organization: "Default"
-    project: "repository_casc_aap"
+    project: "repository_casc_awx"
     inventory: "Demo Inventory"
     playbook: "playbook-filetree.yaml"
     scm_branch: ""
@@ -163,7 +163,7 @@ controller_templates:
     ask_limit_on_launch: false
     ask_credential_on_launch: false
     ask_execution_environment_on_launch: false
-    execution_environment: EE_AAP_2.5_Filetree_dispatch
+    execution_environment: EE_AWX_Filetree_dispatch
     ask_labels_on_launch: false
     ask_forks_on_launch: false
     ask_job_slice_count_on_launch: false
@@ -183,7 +183,7 @@ controller_templates:
   - name: "playbook_casc_dispath"
     description: ""
     organization: "Default"
-    project: "repository_casc_aap"
+    project: "repository_casc_awx"
     inventory: "Demo Inventory"
     playbook: "playbook-dispatch-general.yml"
     scm_branch: ""
@@ -207,7 +207,7 @@ controller_templates:
     ask_limit_on_launch: false
     ask_credential_on_launch: false
     ask_execution_environment_on_launch: false
-    execution_environment: EE_AAP_2.5_Filetree_dispatch
+    execution_environment: EE_AWX_Filetree_dispatch
     ask_labels_on_launch: false
     ask_forks_on_launch: false
     ask_job_slice_count_on_launch: false
@@ -320,56 +320,12 @@ controller_templates:
     diff_mode: false
     webhook_service: ""
     prevent_instance_group_fallback: false
-  - name: "playbook_livecycle"
-    description: ""
-    organization: "Default"
-    project: "repository_livecycle_playbooks"
-    inventory: "Demo Inventory"
-    playbook: "playbook-test.yaml"
-    scm_branch: ""
-    forks: 0
-    limit: ""
-    verbosity: 0
-    job_type: "run"
-    job_slice_count: 1
-    use_fact_cache: false
-    credentials:
-      - "gitea"
-    allow_simultaneous: false
-    ask_scm_branch_on_launch: false
-    ask_diff_mode_on_launch: false
-    ask_tags_on_launch: false
-    ask_skip_tags_on_launch: false
-    ask_job_type_on_launch: false
-    ask_verbosity_on_launch: false
-    ask_variables_on_launch: false
-    ask_inventory_on_launch: false
-    ask_limit_on_launch: false
-    ask_credential_on_launch: false
-    ask_execution_environment_on_launch: false
-    execution_environment: EE_AAP_2.5_Livecycle
-    ask_labels_on_launch: false
-    ask_forks_on_launch: false
-    ask_job_slice_count_on_launch: false
-    ask_timeout_on_launch: false
-    ask_instance_groups_on_launch: false
-    job_tags: ""
-    force_handlers: false
-    skip_tags: ""
-    start_at_task: ""
-    timeout: 0
-    host_config_key: ""
-    survey_enabled: false
-    become_enabled: false
-    diff_mode: false
-    webhook_service: "github"
-    prevent_instance_group_fallback: false
   - name: "playbook-casc-jobtemplate"
     description: ""
     organization: "Default"
-    project: "repository_livecycle_playbooks"
+    project: "repository_casc_awx"
     inventory: "Demo Inventory"
-    playbook: "playbook-casc.yaml"
+    playbook: "playbook-dispatch-and-generate-jobtemplate.yml"
     scm_branch: ""
     forks: 0
     limit: ""
@@ -392,7 +348,7 @@ controller_templates:
     ask_limit_on_launch: false
     ask_credential_on_launch: false
     ask_execution_environment_on_launch: false
-    execution_environment: EE_AAP_2.5_Filetree_dispatch
+    execution_environment: EE_AWX_Filetree_dispatch
     ask_labels_on_launch: false
     ask_forks_on_launch: false
     ask_job_slice_count_on_launch: false
@@ -532,5 +488,352 @@ controller_templates:
     become_enabled: false
     diff_mode: false
     webhook_service: ""
+    prevent_instance_group_fallback: false
+
+
+  - name: "playbook_livecycle"
+    description: ""
+    organization: "Default"
+    project: "repository_livecycle_playbooks"
+    inventory: "Demo Inventory"
+    playbook: "playbook-test.yaml"
+    scm_branch: ""
+    forks: 0
+    limit: ""
+    verbosity: 0
+    job_type: "run"
+    job_slice_count: 1
+    use_fact_cache: false
+    credentials:
+      - "gitea"
+    allow_simultaneous: false
+    ask_scm_branch_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_tags_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_job_type_on_launch: false
+    ask_verbosity_on_launch: false
+    ask_variables_on_launch: false
+    ask_inventory_on_launch: false
+    ask_limit_on_launch: false
+    ask_credential_on_launch: false
+    ask_execution_environment_on_launch: false
+    execution_environment: EE_AWX_Livecycle
+    ask_labels_on_launch: false
+    ask_forks_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_timeout_on_launch: false
+    ask_instance_groups_on_launch: false
+    job_tags: ""
+    force_handlers: false
+    skip_tags: ""
+    start_at_task: ""
+    timeout: 0
+    host_config_key: ""
+    survey_enabled: false
+    become_enabled: false
+    diff_mode: false
+    webhook_service: "github"
+    prevent_instance_group_fallback: false
+  - name: "playbook_livecycle_downloadrepo"
+    description: ""
+    organization: "Default"
+    project: "repository_livecycle_playbooks"
+    inventory: "Demo Inventory"
+    playbook: "playbook-downloadrepo.yaml"
+    scm_branch: ""
+    forks: 0
+    limit: ""
+    verbosity: 0
+    job_type: "run"
+    job_slice_count: 1
+    use_fact_cache: true
+    credentials:
+      - "gitea"
+    allow_simultaneous: false
+    ask_scm_branch_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_tags_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_job_type_on_launch: false
+    ask_verbosity_on_launch: false
+    ask_variables_on_launch: false
+    ask_inventory_on_launch: false
+    ask_limit_on_launch: false
+    ask_credential_on_launch: false
+    ask_execution_environment_on_launch: false
+    ask_labels_on_launch: false
+    ask_forks_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_timeout_on_launch: false
+    ask_instance_groups_on_launch: false
+    job_tags: ""
+    force_handlers: false
+    skip_tags: ""
+    start_at_task: ""
+    timeout: 0
+    host_config_key: ""
+    survey_enabled: false
+    become_enabled: false
+    diff_mode: false
+    prevent_instance_group_fallback: false
+  - name: "playbook_livecycle_ansiblelint"
+    description: ""
+    organization: "Default"
+    project: "repository_livecycle_playbooks"
+    inventory: "Demo Inventory"
+    playbook: "playbook-ansiblelint.yaml"
+    scm_branch: ""
+    forks: 0
+    limit: ""
+    verbosity: 0
+    job_type: "run"
+    credentials:
+      - "gitea"
+    job_slice_count: 1
+    use_fact_cache: true
+    allow_simultaneous: false
+    ask_scm_branch_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_tags_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_job_type_on_launch: false
+    ask_verbosity_on_launch: false
+    ask_variables_on_launch: false
+    ask_inventory_on_launch: false
+    ask_limit_on_launch: false
+    ask_credential_on_launch: false
+    ask_execution_environment_on_launch: false
+    ask_labels_on_launch: false
+    ask_forks_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_timeout_on_launch: false
+    ask_instance_groups_on_launch: false
+    job_tags: ""
+    force_handlers: false
+    skip_tags: ""
+    start_at_task: ""
+    timeout: 0
+    host_config_key: ""
+    survey_enabled: false
+    become_enabled: false
+    diff_mode: false
+    prevent_instance_group_fallback: false
+  - name: "playbook_livecycle_yamlint"
+    description: ""
+    organization: "Default"
+    project: "repository_livecycle_playbooks"
+    inventory: "Demo Inventory"
+    playbook: "playbook-yamlint.yaml"
+    scm_branch: ""
+    forks: 0
+    limit: ""
+    verbosity: 0
+    job_type: "run"
+    credentials:
+      - "gitea"
+    job_slice_count: 1
+    use_fact_cache: true
+    allow_simultaneous: false
+    ask_scm_branch_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_tags_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_job_type_on_launch: false
+    ask_verbosity_on_launch: false
+    ask_variables_on_launch: false
+    ask_inventory_on_launch: false
+    ask_limit_on_launch: false
+    ask_credential_on_launch: false
+    ask_execution_environment_on_launch: false
+    execution_environment: EE_AWX_Livecycle
+    ask_labels_on_launch: false
+    ask_forks_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_timeout_on_launch: false
+    ask_instance_groups_on_launch: false
+    job_tags: ""
+    force_handlers: false
+    skip_tags: ""
+    start_at_task: ""
+    timeout: 0
+    host_config_key: ""
+    survey_enabled: false
+    become_enabled: false
+    diff_mode: false
+    prevent_instance_group_fallback: false
+  - name: "playbook_livecycle_molecule"
+    description: ""
+    organization: "Default"
+    project: "repository_livecycle_playbooks"
+    inventory: "Demo Inventory"
+    playbook: "playbook-molecule.yaml"
+    scm_branch: ""
+    forks: 0
+    limit: ""
+    verbosity: 0
+    job_type: "run"
+    credentials:
+      - "gitea"
+    job_slice_count: 1
+    use_fact_cache: true
+    allow_simultaneous: false
+    ask_scm_branch_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_tags_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_job_type_on_launch: false
+    ask_verbosity_on_launch: false
+    ask_variables_on_launch: false
+    ask_inventory_on_launch: false
+    ask_limit_on_launch: false
+    ask_credential_on_launch: false
+    ask_execution_environment_on_launch: false
+    execution_environment: EE_AWX_Livecycle
+    ask_labels_on_launch: false
+    ask_forks_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_timeout_on_launch: false
+    ask_instance_groups_on_launch: false
+    job_tags: ""
+    force_handlers: false
+    skip_tags: ""
+    start_at_task: ""
+    timeout: 0
+    host_config_key: ""
+    survey_enabled: false
+    become_enabled: false
+    diff_mode: false
+    prevent_instance_group_fallback: false
+  - name: "playbook_livecycle_notification_execution"
+    description: ""
+    organization: "Default"
+    project: "repository_livecycle_playbooks"
+    inventory: "Demo Inventory"
+    playbook: "playbook-notification-execution.yaml"
+    scm_branch: ""
+    forks: 0
+    limit: ""
+    verbosity: 0
+    job_type: "run"
+    credentials:
+      - "gmail-smtp"
+      - "slack"
+      - "TEams"
+    job_slice_count: 1
+    use_fact_cache: true
+    allow_simultaneous: false
+    ask_scm_branch_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_tags_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_job_type_on_launch: false
+    ask_verbosity_on_launch: false
+    ask_variables_on_launch: false
+    ask_inventory_on_launch: false
+    ask_limit_on_launch: false
+    ask_credential_on_launch: false
+    ask_execution_environment_on_launch: false
+    ask_labels_on_launch: false
+    ask_forks_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_timeout_on_launch: false
+    ask_instance_groups_on_launch: false
+    job_tags: ""
+    force_handlers: false
+    skip_tags: ""
+    start_at_task: ""
+    timeout: 0
+    host_config_key: ""
+    survey_enabled: false
+    become_enabled: false
+    diff_mode: false
+    prevent_instance_group_fallback: false
+  - name: "playbook_livecycle_sign"
+    description: ""
+    organization: "Default"
+    project: "repository_livecycle_playbooks"
+    inventory: "Demo Inventory"
+    playbook: "playbook-sign.yaml"
+    scm_branch: ""
+    forks: 0
+    limit: ""
+    verbosity: 0
+    job_type: "run"
+    credentials:
+      - "gitea"
+    job_slice_count: 1
+    use_fact_cache: true
+    allow_simultaneous: false
+    ask_scm_branch_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_tags_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_job_type_on_launch: false
+    ask_verbosity_on_launch: false
+    ask_variables_on_launch: false
+    ask_inventory_on_launch: false
+    ask_limit_on_launch: false
+    ask_credential_on_launch: false
+    ask_execution_environment_on_launch: false
+    execution_environment: EE_AWX_Livecycle
+    ask_labels_on_launch: false
+    ask_forks_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_timeout_on_launch: false
+    ask_instance_groups_on_launch: false
+    job_tags: ""
+    force_handlers: false
+    skip_tags: ""
+    start_at_task: ""
+    timeout: 0
+    host_config_key: ""
+    survey_enabled: false
+    become_enabled: false
+    diff_mode: false
+    prevent_instance_group_fallback: false
+  - name: "playbook_livecycle_playbook_dispatch_and_generate_jobtemplate"
+    description: ""
+    organization: "Default"
+    project: "repository_livecycle_playbooks"
+    inventory: "Demo Inventory"
+    playbook: "playbook-dispatch-and-generate-jobtemplate.yaml"
+    scm_branch: ""
+    forks: 0
+    limit: ""
+    verbosity: 0
+    job_type: "run"
+    credentials:
+      - "gitea"
+      - "aap_login"
+    job_slice_count: 1
+    use_fact_cache: true
+    allow_simultaneous: false
+    ask_scm_branch_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_tags_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_job_type_on_launch: false
+    ask_verbosity_on_launch: false
+    ask_variables_on_launch: false
+    ask_inventory_on_launch: false
+    ask_limit_on_launch: false
+    ask_credential_on_launch: false
+    ask_execution_environment_on_launch: false
+    execution_environment: EE_AWX_Livecycle
+    ask_labels_on_launch: false
+    ask_forks_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_timeout_on_launch: false
+    ask_instance_groups_on_launch: false
+    job_tags: ""
+    force_handlers: false
+    skip_tags: ""
+    start_at_task: ""
+    timeout: 0
+    host_config_key: ""
+    survey_enabled: false
+    become_enabled: false
+    diff_mode: false
     prevent_instance_group_fallback: false
 ...

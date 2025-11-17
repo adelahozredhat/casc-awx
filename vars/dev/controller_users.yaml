@@ -1,7 +1,7 @@
 ---
-aap_user_accounts:
+controller_user_accounts:
   - username: "admin"
-    password: "admin"
+    password: "INITIAL"
     email: "admin@example.com"
     first_name: ""
     last_name: ""

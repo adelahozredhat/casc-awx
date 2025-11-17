@@ -6,17 +6,14 @@
     - vars/{{environment}}/controller_credentials.yaml
     - vars/{{environment}}/controller_credential_types.yaml
     - vars/{{environment}}/controller_execution_environments.yaml
-    - vars/{{environment}}/controller_hosts.yaml
     - vars/{{environment}}/controller_instance_groups.yaml
-    - vars/{{environment}}/controller_inventories.yaml
     - vars/{{environment}}/controller_job_templates.yaml
-    - vars/{{environment}}/gateway_organizations.yaml
+    - vars/{{environment}}/controller_organizations.yaml
     - vars/{{environment}}/controller_projects.yaml
     - vars/{{environment}}/controller_schedules.yaml
-    - vars/{{environment}}/gateway_settings.yaml
-    - vars/{{environment}}/gateway_users.yaml
     - vars/{{environment}}/controller_settings.yaml
-  vars:
+    - vars/{{environment}}/controller_users.yaml
+    - vars/{{environment}}/workflow_job_templates.yaml
     controller_configuration_projects_async_retries: 120
     controller_configuration_projects_async_delay: 2
     aap_username: "{{ vault_controller_username | default(lookup('env', 'CONTROLLER_USERNAME')) }}"
