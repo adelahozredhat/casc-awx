@@ -13,7 +13,7 @@
     - vars/{{environment}}/controller_schedules.yaml
     - vars/{{environment}}/controller_settings.yaml
     - vars/{{environment}}/controller_users.yaml
-    - vars/{{environment}}/workflow_job_templates.yaml
+    - vars/{{environment}}/controller_workflow_job_templates.yaml
     controller_configuration_projects_async_retries: 120
     controller_configuration_projects_async_delay: 2
     aap_username: "{{ vault_controller_username | default(lookup('env', 'CONTROLLER_USERNAME')) }}"
